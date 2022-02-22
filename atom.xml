@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>wky95的競程筆記</title>
   
   
   <link href="http://wky95.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://wky95.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>王開育</name>
     
   </author>
   
