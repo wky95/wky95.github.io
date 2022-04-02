@@ -21,21 +21,22 @@
     var CONFIG = {"hostname":"wky95.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="題目大意 給定一個長度為 \(N\) 的整數序列及一個正整數 \(K\) ，蓋掉數個數字使任意的連續 \(K\) 個數字都至少有一個數字被蓋掉，問蓋掉的數字的總和最小為多少？">
+  <meta name="description" content="題目大意 定義 \(\text{D}(l,r)&#x3D;\Sigma_{i&#x3D;l}^r(i-l+1)\times a_i+b_{l-1}\times\Sigma_{i&#x3D;l}^r a_i\) 要你找 \((l_1,r_1)\) ~ \((l_k,r_k)\), \(l_1&#x3D;1,r_k&#x3D;n,r_i+1&#x3D;l_{i+1}\)，使得 \(\Sigma_{i&#x3D;l}^k \text{D}(l_i,r_i)\) 最大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zerojudge c528:相隔小於一定距離最小總和子序列">
-<meta property="og:url" content="http://wky95.io/2022/03/21/zj-c528/index.html">
+<meta property="og:title" content="Zerojudge f994:疊疊杯子蛋糕">
+<meta property="og:url" content="http://wky95.io/zj-f994/index.html">
 <meta property="og:site_name" content="KenIsGenius的競程隨筆">
-<meta property="og:description" content="題目大意 給定一個長度為 \(N\) 的整數序列及一個正整數 \(K\) ，蓋掉數個數字使任意的連續 \(K\) 個數字都至少有一個數字被蓋掉，問蓋掉的數字的總和最小為多少？">
+<meta property="og:description" content="題目大意 定義 \(\text{D}(l,r)&#x3D;\Sigma_{i&#x3D;l}^r(i-l+1)\times a_i+b_{l-1}\times\Sigma_{i&#x3D;l}^r a_i\) 要你找 \((l_1,r_1)\) ~ \((l_k,r_k)\), \(l_1&#x3D;1,r_k&#x3D;n,r_i+1&#x3D;l_{i+1}\)，使得 \(\Sigma_{i&#x3D;l}^k \text{D}(l_i,r_i)\) 最大">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-21T13:07:00.000Z">
-<meta property="article:modified_time" content="2022-03-22T13:04:48.061Z">
+<meta property="article:published_time" content="2022-03-21T17:48:27.000Z">
+<meta property="article:modified_time" content="2022-03-22T13:04:24.321Z">
 <meta property="article:author" content="KenIsGenius">
 <meta property="article:tag" content="DP">
-<meta property="article:tag" content="單調對列優化">
+<meta property="article:tag" content="動態開點">
+<meta property="article:tag" content="李超線段樹">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wky95.io/2022/03/21/zj-c528/">
+<link rel="canonical" href="http://wky95.io/zj-f994/">
 
 
 <script id="page-configurations">
@@ -48,7 +49,7 @@
   };
 </script>
 
-  <title>Zerojudge c528:相隔小於一定距離最小總和子序列 | KenIsGenius的競程隨筆</title>
+  <title>Zerojudge f994:疊疊杯子蛋糕 | KenIsGenius的競程隨筆</title>
   
 
 
@@ -159,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wky95.io/2022/03/21/zj-c528/">
+    <link itemprop="mainEntityOfPage" href="http://wky95.io/zj-f994/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -172,7 +173,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Zerojudge c528:相隔小於一定距離最小總和子序列
+          Zerojudge f994:疊疊杯子蛋糕
         </h1>
 
         <div class="post-meta">
@@ -181,16 +182,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-03-21 21:07:00" itemprop="dateCreated datePublished" datetime="2022-03-21T21:07:00+08:00">2022-03-21</time>
+              <time title="Created: 2022-03-22 01:48:27 / Modified: 21:04:24" itemprop="dateCreated datePublished" datetime="2022-03-22T01:48:27+08:00">2022-03-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-22 21:04:48" itemprop="dateModified" datetime="2022-03-22T21:04:48+08:00">2022-03-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -220,20 +215,25 @@
 
       
         <h4 id="題目大意">題目大意</h4>
-<p>給定一個長度為 <span class="math inline">\(N\)</span>
-的整數序列及一個正整數 <span class="math inline">\(K\)</span>
-，蓋掉數個數字使任意的連續 <span class="math inline">\(K\)</span>
-個數字都至少有一個數字被蓋掉，問蓋掉的數字的總和最小為多少？
-<span id="more"></span> <a
-target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=c528">原題連結</a></p>
+<p>定義 <span
+class="math inline">\(\text{D}(l,r)=\Sigma_{i=l}^r(i-l+1)\times
+a_i+b_{l-1}\times\Sigma_{i=l}^r a_i\)</span></p>
+<p>要你找 <span class="math inline">\((l_1,r_1)\)</span> ~ <span
+class="math inline">\((l_k,r_k)\)</span>, <span
+class="math inline">\(l_1=1,r_k=n,r_i+1=l_{i+1}\)</span>，使得 <span
+class="math inline">\(\Sigma_{i=l}^k \text{D}(l_i,r_i)\)</span> 最大</p>
+<span id="more"></span>
+<p><a
+target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=994">原題連結</a></p>
 <h4 id="想法">想法</h4>
-<p>另 <span class="math inline">\(dp[i]\)</span> 是最後一個數選擇 <span
-class="math inline">\(a[i]\)</span> 的最小可能值，所以就有 <span
-class="math inline">\(dp[i]=min_{i-k\leq j&lt;i}{dp[j]}+a[i]\)</span>
-。</p>
-<p>然後區間最小值可以用一個 deque 的單調對列維護。總時間複雜度：<span
-class="math inline">\(\text{O}(N)\)</span></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">int</span> dp[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    deque&lt;<span class="type">int</span>&gt; dq;</span><br><span class="line">    dq.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,a;i&lt;=n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        <span class="keyword">if</span>(dq.<span class="built_in">front</span>() &lt; i-k) dq.<span class="built_in">pop_front</span>();</span><br><span class="line">        dp[i] = a + dp[dq.<span class="built_in">front</span>()];</span><br><span class="line">        <span class="keyword">while</span>(dq.<span class="built_in">size</span>() <span class="keyword">and</span> dp[dq.<span class="built_in">back</span>()] &gt; dp[i])&#123;</span><br><span class="line">            dq.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        dq.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dq.<span class="built_in">front</span>() &lt; n-k+<span class="number">1</span>)dq.<span class="built_in">pop_front</span>();</span><br><span class="line">    cout &lt;&lt; dp[dq.<span class="built_in">front</span>()] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另 <span class="math inline">\(P_i=\Sigma_{j=1}^{i}a_j\)</span>，
+<span class="math inline">\(Q_i=\Sigma_{j=1}^{i}a_j\times j\)</span></p>
+<p><span class="math inline">\(dp\)</span>式顯然可以寫成 <span
+class="math inline">\(dp_i=Q_i+max_{0\le j&lt; i}((b_{j}-j)\times
+P_i+dp_{j}-(b_{j}-j)\times P_{j}-Q_{j})\)</span></p>
+<p>然後這樣就可以套進李超線段樹，但是因為查詢的範圍很大，所以要動態開點。</p>
+<p>時間複雜度 <span class="math inline">\(\text{O}(n\log n)\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN=<span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">line</span>&#123;</span><br><span class="line">    <span class="type">int</span> m,k;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">cal</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m*x+k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">tree</span>&#123;</span><br><span class="line">    line l;</span><br><span class="line">    <span class="type">int</span> ls,rs;</span><br><span class="line">&#125;st[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> siz=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> &amp;x,<span class="type">int</span> lb,<span class="type">int</span> rb,line seg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!x)&#123;</span><br><span class="line">        x=++siz,st[x].l=seg;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(lb+<span class="number">1</span>==rb)&#123;</span><br><span class="line">        <span class="keyword">if</span>(st[x].l.<span class="built_in">cal</span>(lb)&lt;seg.<span class="built_in">cal</span>(lb))st[x].l=seg;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(st[x].l.m&gt;seg.m)&#123;</span><br><span class="line">        <span class="built_in">swap</span>(st[x].l,seg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(lb+rb)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(st[x].l.<span class="built_in">cal</span>(mid)&lt;seg.<span class="built_in">cal</span>(mid))&#123;</span><br><span class="line">        <span class="built_in">swap</span>(st[x].l,seg);</span><br><span class="line">        <span class="built_in">add</span>(st[x].ls,lb,mid,seg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">add</span>(st[x].rs,mid,rb,seg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> lb,<span class="type">int</span> rb,<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!st[x].ls <span class="keyword">and</span> !st[x].rs)<span class="keyword">return</span> st[x].l.<span class="built_in">cal</span>(p);</span><br><span class="line">    <span class="type">int</span> mid=(lb+rb)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(p&lt;mid)<span class="keyword">return</span> <span class="built_in">max</span>(st[x].l.<span class="built_in">cal</span>(p),<span class="built_in">qry</span>(st[x].ls,lb,mid,p));</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(st[x].l.<span class="built_in">cal</span>(p),<span class="built_in">qry</span>(st[x].rs,mid,rb,p));</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> lb=<span class="number">-1e9</span>,rb=<span class="number">1e9</span>+<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> n,a[MAXN],b[MAXN],P,Q,dp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,x=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        P += a[i];</span><br><span class="line">        Q += a[i]*i;</span><br><span class="line">        dp = <span class="built_in">qry</span>(<span class="number">1</span>,lb,rb,P)+Q;</span><br><span class="line">        <span class="built_in">add</span>(x,lb,rb,&#123;(b[i]-i),dp-(b[i]-i)*P-Q&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;dp&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -244,7 +244,8 @@ class="math inline">\(\text{O}(N)\)</span></p>
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/DP/" rel="tag"># DP</a>
-              <a href="/tags/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97%E5%84%AA%E5%8C%96/" rel="tag"># 單調對列優化</a>
+              <a href="/tags/%E5%8B%95%E6%85%8B%E9%96%8B%E9%BB%9E/" rel="tag"># 動態開點</a>
+              <a href="/tags/%E6%9D%8E%E8%B6%85%E7%B7%9A%E6%AE%B5%E6%A8%B9/" rel="tag"># 李超線段樹</a>
           </div>
 
         
@@ -252,11 +253,11 @@ class="math inline">\(\text{O}(N)\)</span></p>
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/03/22/zj-f994/" rel="next" title="Zerojudge f994:疊疊杯子蛋糕">
-      Zerojudge f994:疊疊杯子蛋糕 <i class="fa fa-chevron-right"></i>
+    <a href="/zj-c528/" rel="prev" title="Zerojudge c528:相隔小於一定距離最小總和子序列">
+      <i class="fa fa-chevron-left"></i> Zerojudge c528:相隔小於一定距離最小總和子序列
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
