@@ -29,7 +29,7 @@
 <meta property="og:description" content="題目大意 給定一個長度為 \(N\) 的整數序列及一個正整數 \(K\) ，蓋掉數個數字使任意的連續 \(K\) 個數字都至少有一個數字被蓋掉，問蓋掉的數字的總和最小為多少？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-21T13:07:00.000Z">
-<meta property="article:modified_time" content="2022-03-22T13:04:48.061Z">
+<meta property="article:modified_time" content="2022-04-04T14:59:41.741Z">
 <meta property="article:author" content="KenIsGenius">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="單調對列優化">
@@ -189,7 +189,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-22 21:04:48" itemprop="dateModified" datetime="2022-03-22T21:04:48+08:00">2022-03-22</time>
+                <time title="Modified: 2022-04-04 22:59:41" itemprop="dateModified" datetime="2022-04-04T22:59:41+08:00">2022-04-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +227,7 @@
 <span id="more"></span> <a
 target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=c528">原題連結</a></p>
 <h4 id="想法">想法</h4>
-<p>另 <span class="math inline">\(dp[i]\)</span> 是最後一個數選擇 <span
+<p>令 <span class="math inline">\(dp[i]\)</span> 是最後一個數選擇 <span
 class="math inline">\(a[i]\)</span> 的最小可能值，所以就有 <span
 class="math inline">\(dp[i]=min_{i-k\leq j&lt;i}{dp[j]}+a[i]\)</span>
 。</p>
