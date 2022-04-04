@@ -3,11 +3,11 @@
   <title>KenIsGenius的競程隨筆</title>
   
   
-  <link href="http://wky95.io/atom.xml" rel="self"/>
+  <link href="http://wky95.github.io/atom.xml" rel="self"/>
   
-  <link href="http://wky95.io/"/>
+  <link href="http://wky95.github.io/"/>
   <updated>2022-04-03T09:51:24.675Z</updated>
-  <id>http://wky95.io/</id>
+  <id>http://wky95.github.io/</id>
   
   <author>
     <name>KenIsGenius</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>CSES 1670 Swap Game</title>
-    <link href="http://wky95.io/cses-1670/"/>
-    <id>http://wky95.io/cses-1670/</id>
+    <link href="http://wky95.github.io/cses-1670/"/>
+    <id>http://wky95.github.io/cses-1670/</id>
     <published>2022-04-03T09:32:29.000Z</published>
     <updated>2022-04-03T09:51:24.675Z</updated>
     
@@ -32,19 +32,19 @@
     
     
     
-    <category term="cses" scheme="http://wky95.io/categories/cses/"/>
+    <category term="cses" scheme="http://wky95.github.io/categories/cses/"/>
     
     
-    <category term="bfs" scheme="http://wky95.io/tags/bfs/"/>
+    <category term="bfs" scheme="http://wky95.github.io/tags/bfs/"/>
     
-    <category term="hash" scheme="http://wky95.io/tags/hash/"/>
+    <category term="hash" scheme="http://wky95.github.io/tags/hash/"/>
     
   </entry>
   
   <entry>
     <title>Zerojudge f994:疊疊杯子蛋糕</title>
-    <link href="http://wky95.io/zj-f994/"/>
-    <id>http://wky95.io/zj-f994/</id>
+    <link href="http://wky95.github.io/zj-f994/"/>
+    <id>http://wky95.github.io/zj-f994/</id>
     <published>2022-03-21T17:48:27.000Z</published>
     <updated>2022-03-22T13:04:24.321Z</updated>
     
@@ -62,21 +62,21 @@ class=&quot;math inline&quot;&gt;\(\Sigma_{i=l}^k \text{D}(l_i,r_i)\)&lt;/span&g
     
     
     
-    <category term="Zerojudge" scheme="http://wky95.io/categories/Zerojudge/"/>
+    <category term="Zerojudge" scheme="http://wky95.github.io/categories/Zerojudge/"/>
     
     
-    <category term="DP" scheme="http://wky95.io/tags/DP/"/>
+    <category term="DP" scheme="http://wky95.github.io/tags/DP/"/>
     
-    <category term="動態開點" scheme="http://wky95.io/tags/%E5%8B%95%E6%85%8B%E9%96%8B%E9%BB%9E/"/>
+    <category term="動態開點" scheme="http://wky95.github.io/tags/%E5%8B%95%E6%85%8B%E9%96%8B%E9%BB%9E/"/>
     
-    <category term="李超線段樹" scheme="http://wky95.io/tags/%E6%9D%8E%E8%B6%85%E7%B7%9A%E6%AE%B5%E6%A8%B9/"/>
+    <category term="李超線段樹" scheme="http://wky95.github.io/tags/%E6%9D%8E%E8%B6%85%E7%B7%9A%E6%AE%B5%E6%A8%B9/"/>
     
   </entry>
   
   <entry>
     <title>Zerojudge c528:相隔小於一定距離最小總和子序列</title>
-    <link href="http://wky95.io/zj-c528/"/>
-    <id>http://wky95.io/zj-c528/</id>
+    <link href="http://wky95.github.io/zj-c528/"/>
+    <id>http://wky95.github.io/zj-c528/</id>
     <published>2022-03-21T13:07:00.000Z</published>
     <updated>2022-03-22T13:04:48.061Z</updated>
     
@@ -91,12 +91,12 @@ class=&quot;math inline&quot;&gt;\(\Sigma_{i=l}^k \text{D}(l_i,r_i)\)&lt;/span&g
     
     
     
-    <category term="Zerojudge" scheme="http://wky95.io/categories/Zerojudge/"/>
+    <category term="Zerojudge" scheme="http://wky95.github.io/categories/Zerojudge/"/>
     
     
-    <category term="DP" scheme="http://wky95.io/tags/DP/"/>
+    <category term="DP" scheme="http://wky95.github.io/tags/DP/"/>
     
-    <category term="單調對列優化" scheme="http://wky95.io/tags/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97%E5%84%AA%E5%8C%96/"/>
+    <category term="單調對列優化" scheme="http://wky95.github.io/tags/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97%E5%84%AA%E5%8C%96/"/>
     
   </entry>
   
