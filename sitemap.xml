@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wky95.github.io/tcircoj-d023/</loc>
+    
+    <lastmod>2022-04-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wky95.github.io/zj-f994/</loc>
     
     <lastmod>2022-04-04</lastmod>
@@ -66,6 +75,13 @@
   </url>
   
   <url>
+    <loc>http://wky95.github.io/tags/%E9%81%9E%E8%BF%B4/</loc>
+    <lastmod>2022-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://wky95.github.io/tags/%E5%8B%95%E6%85%8B%E9%96%8B%E9%BB%9E/</loc>
     <lastmod>2022-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -90,6 +106,20 @@
   
   <url>
     <loc>http://wky95.github.io/categories/Zerojudge/</loc>
+    <lastmod>2022-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wky95.github.io/categories/%E5%85%A8%E5%9C%8B%E8%B3%BD/</loc>
+    <lastmod>2022-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wky95.github.io/categories/%E5%85%A8%E5%9C%8B%E8%B3%BD/TCIRC-Online-Judge/</loc>
     <lastmod>2022-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
