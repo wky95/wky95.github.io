@@ -77,13 +77,6 @@
   </url>
   
   <url>
-    <loc>http://wky95.github.io/tags/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97%E5%84%AA%E5%8C%96/</loc>
-    <lastmod>2022-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://wky95.github.io/tags/%E5%8B%95%E6%85%8B%E9%96%8B%E9%BB%9E/</loc>
     <lastmod>2022-06-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -92,6 +85,13 @@
   
   <url>
     <loc>http://wky95.github.io/tags/%E6%9D%8E%E8%B6%85%E7%B7%9A%E6%AE%B5%E6%A8%B9/</loc>
+    <lastmod>2022-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wky95.github.io/tags/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97%E5%84%AA%E5%8C%96/</loc>
     <lastmod>2022-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://wky95.github.io/categories/apcs/</loc>
-    <lastmod>2022-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://wky95.github.io/categories/Zerojudge/</loc>
     <lastmod>2022-06-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,6 +129,13 @@
   
   <url>
     <loc>http://wky95.github.io/categories/%E5%85%A8%E5%9C%8B%E8%B3%BD/TCIRC-Online-Judge/</loc>
+    <lastmod>2022-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wky95.github.io/categories/apcs/</loc>
     <lastmod>2022-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
