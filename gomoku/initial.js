@@ -1,5 +1,5 @@
 const board = document.getElementById("board");
-const size = 19;
+let size = 19;
 
 let matrix = Array.from({ length: size }, () => Array(size).fill(0));
 
@@ -27,6 +27,33 @@ function CheckWin() {
     return 0;
 };
 function Init() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("size")) {
+        let tmp = parseInt(params.get("size"))
+        if (tmp == 15 || tmp == 17 || tmp == 19) {
+            size = parseInt(params.get("size"))
+        }
+    }
+
+    if (size != 19) { // modify the style
+        const sheet = document.styleSheets[0];
+
+        // 找到 .myClass 規則
+        for (let i = 0; i < sheet.cssRules.length; i++) {
+            const rule = sheet.cssRules[i];
+            if (rule.selectorText === ".board") {
+                // width: 950px;
+                // height: 950px;
+                // grid-template-columns: repeat(19, 50px);
+                // grid-template-rows: repeat(19, 50px);
+                rule.style.width = rule.style.height = String(50 * size) + "px";
+                console.log(size, rule.style.width)
+                rule.style.gridTemplateColumns = rule.style.gridTemplateRows = "repeat(" + String(size) + ", 50px)";
+            }
+        }
+        
+    }
+
     let currentPlayer = 'black';
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
