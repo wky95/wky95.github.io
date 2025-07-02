@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>五子棋 19x19</title>
+  <style>
+    .board {
+      width: 950px;
+      height: 950px;
+      display: grid;
+      grid-template-columns: repeat(19, 50px);
+      grid-template-rows: repeat(19, 50px);
+     
+      /*border: 2px solid #333; */
+      border: none;
+      margin: 20px auto;
+      position: relative;
+      background-color: #f0d9b5; /* 棋盤底色 */
+    }
+
+        .cell_black {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; 
+      border: none;
+      
+      box-sizing: border-box;
+      position: relative;
+      cursor: pointer;
+      
+    }
+    .cell_black:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .cell_white {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; 
+      border: none;
+    
+      box-sizing: border-box;
+      position: relative;
+      cursor: pointer;
+      
+    }
+    .cell_white:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .center-line-horizontal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        transform: translateY(-50%);
+    }
+
+    .center-line-vertical {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background-color: black;
+        transform: translateX(-50%);
+    }
+
+    .stone {
+      width: 128%;
+      height: 128%;
+      border-radius: 50%;
+      position: relative;
+      top: -14%;
+      left: -14%;
+    }
+  </style>
+
+
+  <script src="initial.js" defer> </script>
+</head>
+<body>
+
+  <h2 style="text-align:center; font-size: 40px;"> Gomoku </h2>
+    
+  <div class="board" id="board"></div>
+  <div class="board_btn" id="boardhehe"></div>
+
+</body>
+</html>
