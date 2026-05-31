@@ -30,6 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
         "........"
     ];
 
+    function saveGrid() {
+        localStorage.setItem('kestoBgGrid', JSON.stringify(bgGrid));
+        localStorage.setItem('kestoFgGrid', JSON.stringify(fgGrid));
+    }
+
+    function loadGrid() {
+        const savedBg = localStorage.getItem('kestoBgGrid');
+        const savedFg = localStorage.getItem('kestoFgGrid');
+        if (savedBg && savedFg) {
+            try {
+                bgGrid = JSON.parse(savedBg);
+                fgGrid = JSON.parse(savedFg);
+                return true;
+            } catch(e) {
+                console.error("Failed to load grid from localStorage", e);
+            }
+        }
+        return false;
+    }
+
     let isDrawing = false;
     let blockEntities = []; // Array of DOM elements for moving blocks
 
@@ -42,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         gridEl.innerHTML = '';
         cells = [];
         
+        const hasSaved = loadGrid();
+
         for (let r = 0; r < 8; r++) {
             cells[r] = [];
             for (let c = 0; c < 8; c++) {
@@ -50,12 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 cell.dataset.r = r;
                 cell.dataset.c = c;
                 
-                // Load default
-                const char = defaultGrid[r][c];
-                if (char === '#' || char === 'T') {
-                    bgGrid[r][c] = char;
-                } else if (char === 'Y') {
-                    fgGrid[r][c] = 'Y';
+                if (!hasSaved) {
+                    // Load default
+                    const char = defaultGrid[r][c];
+                    if (char === '#' || char === 'T') {
+                        bgGrid[r][c] = char;
+                    } else if (char === 'Y') {
+                        fgGrid[r][c] = 'Y';
+                    }
                 }
                 updateCellClass(cell, r, c);
 
@@ -124,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         updateCellClass(cells[r][c], r, c);
+        saveGrid();
     }
 
     document.addEventListener('mouseup', () => {
@@ -160,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         clearBlockEntities();
         restoreGridVisuals();
+        saveGrid();
         solverMessage.textContent = "Edit mode. Ready to solve.";
         solverMessage.style.color = "var(--text-secondary)";
     });
@@ -180,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCellClass(cells[r][c], r, c);
             }
         }
+        saveGrid();
     });
 
     // Solve
