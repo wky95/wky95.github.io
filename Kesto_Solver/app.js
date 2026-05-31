@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default puzzle from original C++ code
     const defaultGrid = [
         "........",
-        ".T....T.",
-        "..#..#..",
-        "...YY...",
-        "...YY...",
-        "..#..#..",
-        ".T....T.",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
         "........"
     ];
 
