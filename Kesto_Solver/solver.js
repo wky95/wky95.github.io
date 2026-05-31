@@ -211,7 +211,7 @@ class Solver {
         return (state ^ moving) | final_dest;
     }
 
-    solve(maxNodes = 500000) { // Safety limit for browser
+    solve(maxNodes = 10000000) { // Safety limit for browser
         const open_list = new PriorityQueue();
         const best_g = new Map();
         const dirChars = ['U', 'D', 'L', 'R'];
